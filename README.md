@@ -3,407 +3,745 @@
 ### Multi-Model AI Platform for Intelligent Prediction, Detection & AI-Powered Explanations
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Python-3.13-blue?style=for-the-badge&logo=python" />
-  <img src="https://img.shields.io/badge/FastAPI-Backend-009688?style=for-the-badge&logo=fastapi" />
-  <img src="https://img.shields.io/badge/TensorFlow-Deep%20Learning-orange?style=for-the-badge&logo=tensorflow" />
-  <img src="https://img.shields.io/badge/XGBoost-Machine%20Learning-red?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Google-Gemini-8E75B2?style=for-the-badge&logo=google" />
-  <img src="https://img.shields.io/badge/Deployment-Railway-purple?style=for-the-badge&logo=railway" />
+  <img src="https://img.shields.io/badge/Python-3.13-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/FastAPI-Backend-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI">
+  <img src="https://img.shields.io/badge/TensorFlow-Deep%20Learning-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white" alt="TensorFlow">
+  <img src="https://img.shields.io/badge/XGBoost-Machine%20Learning-EC1C24?style=for-the-badge" alt="XGBoost">
 </p>
 
 <p align="center">
-  <strong>AURA AI</strong> is a multi-model artificial intelligence platform that combines
-  Machine Learning, Deep Learning, Computer Vision, and Generative AI
-  into a unified application.
+  <img src="https://img.shields.io/badge/Google-Gemini-8E75B2?style=for-the-badge&logo=google&logoColor=white" alt="Google Gemini">
+  <img src="https://img.shields.io/badge/TensorFlow%20Lite-Computer%20Vision-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white" alt="TensorFlow Lite">
+  <img src="https://img.shields.io/badge/Scikit--learn-Machine%20Learning-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white" alt="Scikit-learn">
+  <img src="https://img.shields.io/badge/Railway-Deployment-8000FF?style=for-the-badge&logo=railway&logoColor=white" alt="Railway">
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/JavaScript-Frontend-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
+  <img src="https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
+  <img src="https://img.shields.io/badge/Huawei-AI%20Training-E60012?style=for-the-badge" alt="Huawei AI Training">
 </p>
 
 ---
 
 ## 📌 Overview
 
-AURA AI is a multi-model Artificial Intelligence platform developed as part of the Huawei AI Training Program.
+**AURA AI** is a multi-model Artificial Intelligence platform developed as part of the **Huawei AI Training Program**.
 
-The project combines multiple Artificial Intelligence technologies into one unified platform, including:
+The platform brings together **Machine Learning, Deep Learning, Computer Vision, and Generative AI** inside one unified application.
 
-🤖 Machine Learning
-🧠 Deep Learning
-👁️ Computer Vision
-✨ Generative AI
-⚡ REST APIs
-☁️ Cloud Deployment
+AURA AI currently integrates three independent AI models:
 
-AURA AI integrates three independent AI models, each designed for a different real-world problem, while Google Gemini provides natural-language explanations and conversational interaction with the model outputs.
+- 💳 **Credit Card Fraud Detection** — XGBoost Classification
+- 🏠 **House Price Prediction** — Stacking Regression
+- 🍅 **Tomato Leaf Disease Detection** — DenseNet121 / TensorFlow Lite
 
-🧠 AI Models
-1. 💳 Credit Card Fraud Detection
+On top of these models, **Google Gemini** acts as an AI explanation and conversational layer. Gemini explains model outputs and allows users to interact with the results using natural language without replacing the underlying model predictions.
 
-A Machine Learning classification model designed to identify potentially fraudulent credit card transactions.
+---
 
-Model: XGBoost Classifier
+## 🎯 Project Highlights
 
-Input:
+| Capability | Description |
+|---|---|
+| 🤖 Multi-Model AI | Three independent AI models integrated into one platform |
+| 💳 Fraud Detection | Detect potentially fraudulent credit-card transactions |
+| 🏠 Regression | Estimate residential property prices |
+| 🍅 Computer Vision | Classify tomato leaf diseases from images |
+| ✨ Generative AI | Gemini-powered explanations and conversation |
+| ⚡ REST API | FastAPI backend exposing all AI services |
+| 📊 Batch Prediction | CSV/Excel dataset processing where supported |
+| ☁️ Cloud Deployment | Production backend deployed on Railway |
+| 🔐 Environment Security | API credentials stored through environment variables |
 
-Structured transaction data
-CSV
-Excel
-Single transaction features
+---
 
-Output:
+# 🧠 AI Models
 
-Fraud / Legitimate classification
-Prediction probability
+## 💳 1. Credit Card Fraud Detection
 
-Accuracy: 99.98%
+The Fraud Detection module classifies credit card transactions and determines whether a transaction is potentially fraudulent.
 
-2. 🏠 House Price Prediction
+### Model
 
-A Regression model designed to estimate residential property prices based on property characteristics.
+**XGBoost Classifier**
 
-Model: Stacking Regressor Pipeline
+XGBoost is used as the core classification algorithm for structured transaction data.
 
-The system performs feature engineering before generating the final prediction.
+### Supported Input
 
-Feature Engineering
+- Single transaction data
+- CSV datasets
+- Excel datasets
 
-Examples include:
+### Output
 
-TotalSF
-TotalPorchSF
-TotalBath
-HouseAge
-RemodAge
-Quality ordinal encoding
+- Fraud / Legitimate classification
+- Prediction result
+- Model probability information
 
-The model also applies the required inverse transformation to return predictions in the original price scale.
+### Performance
 
-Accuracy: 94.5%
+**Accuracy: 99.98%**
 
-Output:
+---
 
-Estimated property price
-Minimum predicted price
-Maximum predicted price
-Mean predicted price
-Median predicted price
-3. 🍅 Tomato Leaf Disease Detection
+## 🏠 2. House Price Prediction
 
-A Deep Learning Computer Vision model designed to classify tomato leaf images and identify potential diseases.
+The House Price module estimates residential property prices based on structured property characteristics.
 
-Architecture: DenseNet121-based CNN
+### Model
 
-The production deployment uses a TensorFlow Lite model optimized for deployment.
+**Stacking Regressor Pipeline**
 
-Input:
+The pipeline combines multiple regression estimators to produce the final prediction.
 
-.jpg
-.jpeg
-.png
-.webp
+### Feature Engineering
 
-Images are resized and preprocessed before inference.
+Before inference, the API performs the required feature transformations, including:
 
-Output:
+- `TotalSF`
+- `TotalPorchSF`
+- `TotalBath`
+- `HouseAge`
+- `RemodAge`
+- Quality ordinal encoding
 
-Predicted disease class
-Confidence score
-Top class probabilities
+The model also handles the required logarithmic target transformation and applies the inverse transformation to return the predicted price in the original scale.
 
-Accuracy: 99.5%
+### Output
 
-The model supports 10 tomato leaf classes.
+For uploaded property datasets, the API returns:
 
-✨ AURA AI — Gemini Integration
+- Property-level predictions
+- Minimum predicted price
+- Maximum predicted price
+- Mean predicted price
+- Median predicted price
 
-AURA AI also integrates Google Gemini as the Generative AI layer.
+### Performance
 
-Gemini does not replace the machine-learning models.
+**Accuracy: 94.5%**
 
-Instead, the architecture separates:
+---
 
-Prediction → Explanation → Conversation
+## 🍅 3. Tomato Leaf Disease Detection
 
-The ML/DL models are responsible for generating predictions, while Gemini explains those predictions in natural language.
+The Tomato Disease module is a Computer Vision system that classifies tomato leaf images into disease/health categories.
 
-For example:
+### Model
 
-Model:
+**DenseNet121-based CNN**
 
-Predicted House Price: $203,500
+For production deployment, the trained model is served as a **TensorFlow Lite (`.tflite`) model** to reduce deployment size and improve CPU-based inference compatibility.
 
-AURA:
+### Supported Images
 
-Hi I am Aura 👋
-The estimated property price is approximately $203,500 based on the provided property characteristics...
+- `.jpg`
+- `.jpeg`
+- `.png`
+- `.webp`
 
-This separation keeps the model prediction authoritative while allowing users to interact with the result conversationally.
+### Processing Pipeline
 
-🏗️ System Architecture
-                    ┌──────────────────────┐
-                    │      AURA AI UI      │
-                    │   Web Application    │
-                    └──────────┬───────────┘
-                               │
-                               ▼
-                    ┌──────────────────────┐
-                    │      FastAPI         │
-                    │      REST API        │
-                    └──────────┬───────────┘
-                               │
-              ┌────────────────┼────────────────┐
-              │                │                │
-              ▼                ▼                ▼
-      ┌──────────────┐ ┌──────────────┐ ┌──────────────┐
-      │    Fraud     │ │ House Price  │ │    Tomato    │
-      │   XGBoost    │ │   Regression │ │  CNN / TFLite│
-      └──────────────┘ └──────────────┘ └──────────────┘
-              │                │                │
-              └────────────────┼────────────────┘
-                               │
-                               ▼
-                    ┌──────────────────────┐
-                    │    Google Gemini     │
-                    │ AI Explanation Layer │
-                    └──────────────────────┘
-⚡ Core Features
-Multi-Model AI
+```text
+Image Upload
+     ↓
+Image Validation
+     ↓
+Resize to 224 × 224
+     ↓
+Model Preprocessing
+     ↓
+TensorFlow Lite Inference
+     ↓
+Class Probabilities
+     ↓
+Predicted Disease + Confidence
+```
 
-Three different AI models are integrated into a single application.
+### Output
 
-Independent Model Workflows
+- Predicted class
+- Confidence score
+- Top class probabilities
 
-Each model has its own input format and prediction workflow.
+### Classes
 
-AI-Powered Explanations
+The application supports **10 Tomato Leaf Disease classes** through the accompanying class-name metadata file.
 
-Gemini converts technical model outputs into understandable explanations.
+### Performance
 
-RESTful API
+**Accuracy: 99.5%**
 
-The entire AI backend is exposed through FastAPI endpoints.
+---
 
-Batch Prediction
+# ✨ Google Gemini Integration
 
-The Fraud Detection and House Price modules support dataset-based predictions.
+Google Gemini is integrated as the **Generative AI explanation and conversation layer**.
 
-Computer Vision
+The architecture intentionally separates model authority from natural-language generation:
 
-The Tomato Disease module accepts real-world plant images.
+```text
+Traditional AI Models
+        │
+        ▼
+   Model Prediction
+        │
+        ▼
+   Google Gemini
+        │
+        ▼
+Natural Language Explanation
+        │
+        ▼
+      AURA AI
+```
 
-Cloud Deployment
+### Gemini Responsibilities
 
-The backend is deployed as a production API using Railway.
+Gemini can:
 
-🔌 API Endpoints
-Fraud Detection
+- Explain Fraud Detection results
+- Explain House Price predictions
+- Explain Tomato Disease predictions
+- Provide contextual guidance
+- Discuss model outputs conversationally
+- Answer normal user questions through the chat interface
+
+### Model Authority
+
+Gemini does **not** replace or modify the predictions generated by the trained ML/DL models.
+
+The architecture follows:
+
+> **Prediction → Explanation → Conversation**
+
+This keeps the trained models responsible for predictions while Gemini provides the conversational intelligence around those results.
+
+---
+
+# 🏗️ System Architecture
+
+```mermaid
+flowchart TB
+
+    UI["🖥️ AURA AI Web Application"]
+
+    API["⚡ FastAPI REST API"]
+
+    FRAUD["💳 Fraud Detection<br/>XGBoost"]
+    REG["🏠 House Price Prediction<br/>Stacking Regressor"]
+    CNN["🍅 Tomato Disease Detection<br/>CNN / TensorFlow Lite"]
+
+    GEMINI["✨ Google Gemini<br/>AI Explanation Layer"]
+
+    UI --> API
+
+    API --> FRAUD
+    API --> REG
+    API --> CNN
+
+    FRAUD --> GEMINI
+    REG --> GEMINI
+    CNN --> GEMINI
+
+    GEMINI --> UI
+```
+
+---
+
+# 🔄 Model Processing Workflows
+
+## 💳 Fraud Detection Workflow
+
+```mermaid
+flowchart LR
+    A["📥 Transaction Dataset"] --> B["🔍 Validation"]
+    B --> C["⚙️ Feature Processing"]
+    C --> D["🤖 XGBoost"]
+    D --> E["📊 Fraud Prediction"]
+    E --> F["✨ Gemini Explanation"]
+```
+
+## 🏠 House Price Workflow
+
+```mermaid
+flowchart LR
+    A["📥 Property Dataset"] --> B["🔍 Validation"]
+    B --> C["⚙️ Feature Engineering"]
+    C --> D["🏠 Stacking Regressor"]
+    D --> E["💰 Price Prediction"]
+    E --> F["📊 Summary Statistics"]
+    F --> G["✨ Gemini Explanation"]
+```
+
+## 🍅 Tomato Disease Workflow
+
+```mermaid
+flowchart LR
+    A["📷 Leaf Image"] --> B["🔍 Validation"]
+    B --> C["🖼️ 224×224 Preprocessing"]
+    C --> D["🧠 TFLite CNN"]
+    D --> E["🍅 Disease Prediction"]
+    E --> F["📈 Confidence & Probabilities"]
+    F --> G["✨ Gemini Explanation"]
+```
+
+---
+
+# 💬 Conversational AI Workflow
+
+Normal user messages are handled separately from model-specific input workflows.
+
+```mermaid
+flowchart LR
+    USER["👤 User Message"] --> CHAT["💬 AURA Chat"]
+    CHAT --> GEMINI["✨ Google Gemini"]
+    GEMINI --> RESPONSE["🤖 Natural Language Response"]
+
+    MODEL["📊 Existing Model Output"] --> CHAT
+    CHAT --> GEMINI
+```
+
+This allows users to:
+
+- Ask AURA normal questions
+- Discuss an existing prediction
+- Ask for clarification about a model output
+- Request explanations
+- Continue a conversation without re-running the model unnecessarily
+
+---
+
+# 🔌 API Endpoints
+
+## 💳 Fraud Detection
+
+### Single Prediction
+
+```http
 POST /predict/fraud
 POST /api/predict/fraud
+```
 
+### CSV Batch Prediction
+
+```http
 POST /predict/fraud/csv
 POST /api/predict/fraud/csv
+```
 
+### Excel Batch Prediction
+
+```http
 POST /predict/fraud/excel
 POST /api/predict/fraud/excel
-House Price Regression
+```
+
+---
+
+## 🏠 House Price Regression
+
+```http
 POST /predict/house-price/csv
 POST /api/predict/house-price/csv
-Tomato Disease Detection
+```
+
+---
+
+## 🍅 Tomato Leaf Disease
+
+```http
 POST /predict/cnn/image
 POST /api/predict/cnn/image
-Gemini AI
+```
+
+---
+
+## ✨ Gemini AI
+
+### Fraud Explanation
+
+```http
 POST /api/ai/analyze
+```
+
+### House Price Explanation
+
+```http
 POST /api/ai/analyze-regression
+```
+
+### Disease Explanation
+
+```http
 POST /api/ai/analyze-disease
-🛠️ Technology Stack
-Technology	Purpose
-Python 3.13	Backend & AI
-FastAPI	REST API
-Scikit-learn	Machine Learning
-XGBoost	Fraud Detection
-TensorFlow	Deep Learning
-TensorFlow Lite	CNN Deployment
-DenseNet121	Image Classification
-Google Gemini	Generative AI
-JavaScript	Frontend Logic
-Railway	Cloud Deployment
-Joblib	Model Serialization
-📁 Project Structure
-nexa-ai-api/
+```
+
+---
+
+# 🛠️ Technology Stack
+
+| Technology | Role |
+|---|---|
+| 🐍 **Python 3.13** | Backend and AI development |
+| ⚡ **FastAPI** | REST API backend |
+| 📊 **Scikit-learn** | ML pipelines and preprocessing |
+| 🚀 **XGBoost** | Fraud classification |
+| 🧠 **TensorFlow** | Deep Learning |
+| 📱 **TensorFlow Lite** | Lightweight CNN inference |
+| 👁️ **DenseNet121** | Tomato image classification |
+| ✨ **Google Gemini** | Generative AI and explanations |
+| 🟨 **JavaScript** | Frontend application logic |
+| ☁️ **Railway** | Production deployment |
+| 🐙 **GitHub** | Version control and source hosting |
+
+---
+
+# 📁 Project Structure
+
+```text
+AURA-AI/
 │
-├── api/
-│   └── index.py
-│
-├── models/
-│   ├── fraud_model.joblib
-│   ├── fraud_scaler.joblib
-│   ├── house_price_model.joblib
-│   ├── house_price_model_info.joblib
-│   ├── tomato_leaf_disease_model.tflite
-│   └── tomato_class_names.json
+├── nexa-ai-api/
+│   │
+│   ├── api/
+│   │   └── index.py
+│   │
+│   ├── models/
+│   │   ├── fraud_model.joblib
+│   │   ├── fraud_scaler.joblib
+│   │   ├── house_price_model.joblib
+│   │   ├── house_price_model_info.joblib
+│   │   ├── tomato_leaf_disease_model.tflite
+│   │   └── tomato_class_names.json
+│   │
+│   ├── test_api.py
+│   ├── requirements.txt
+│   └── ...
 │
 ├── js/
 │   ├── api.js
 │   ├── models.js
 │   └── chat.js
 │
-├── test_api.py
-├── requirements.txt
-└── README.md
-🔄 User Workflow
-Fraud Detection
-Upload Transaction Dataset
-          ↓
-Data Validation
-          ↓
-Feature Processing
-          ↓
-XGBoost Model
-          ↓
-Fraud Prediction
-          ↓
-Gemini Explanation
-House Price Prediction
-Upload Property Dataset
-          ↓
-Feature Engineering
-          ↓
-Regression Model
-          ↓
-Price Prediction
-          ↓
-Summary Statistics
-          ↓
-Gemini Explanation
-Tomato Disease Detection
-Upload Leaf Image
-          ↓
-Image Preprocessing
-          ↓
-TensorFlow Lite CNN
-          ↓
-Disease Classification
-          ↓
-Confidence Score
-          ↓
-Gemini Explanation & Plant Care
-🧪 Testing & Validation
+├── index.html
+├── README.md
+└── ...
+```
 
-The backend includes automated tests covering the major AI workflows.
+---
+
+# 🧩 Frontend Architecture
+
+The frontend uses Vanilla JavaScript and separates API communication, model rendering, and chat behavior.
+
+### `js/api.js`
+
+Provides the API abstraction layer for:
+
+```text
+NEXA_API.fraud.uploadDataset(file)
+NEXA_API.regression.uploadDataset(file)
+NEXA_API.cnn.analyzeImage(file)
+
+NEXA_API.ai.analyzeFraud(payload)
+NEXA_API.ai.analyzeRegression(payload)
+NEXA_API.ai.analyzeDisease(payload)
+```
+
+### `js/models.js`
+
+Responsible for rendering:
+
+- Upload interfaces
+- Prediction tables
+- Summary statistics
+- Pagination
+- CNN probability bars
+- Gemini explanation cards
+- AI fallback notices
+
+### `js/chat.js`
+
+Handles conversational workflows and quick actions, including:
+
+```text
+Analyze Image (CNN)
+Classify Features
+Predict Outcome
+```
+
+Each quick action triggers its dedicated workflow instead of relying on generic free-text intent detection.
+
+---
+
+# 📊 Model Performance
+
+| Model | Task | Architecture | Performance |
+|---|---|---|---:|
+| 💳 Fraud Detection | Classification | XGBoost | **99.98% Accuracy** |
+| 🏠 House Price | Regression | Stacking Regressor | **94.5%** |
+| 🍅 Tomato Disease | Image Classification | DenseNet121 / TFLite | **99.5% Accuracy** |
+
+> **Note:** Performance values represent the evaluation results obtained during the project's model development and testing process.
+
+---
+
+# 🧪 Testing & Validation
+
+The project includes backend API tests covering the major prediction workflows.
 
 The test suite validates:
 
-API availability
-Health endpoints
-Fraud prediction
-Fraud CSV processing
-Fraud Excel processing
-Input validation
-Missing columns
-Non-numeric values
-Empty files
-Invalid file extensions
-House Price regression
-Tomato disease classification
-Gemini fallback handling
+- ✅ Root endpoints
+- ✅ Health endpoints
+- ✅ Fraud single prediction
+- ✅ Fraud CSV prediction
+- ✅ Fraud Excel prediction
+- ✅ Missing-column validation
+- ✅ Non-numeric input validation
+- ✅ Empty-file validation
+- ✅ Invalid-extension validation
+- ✅ House Price regression
+- ✅ Tomato Disease classification
+- ✅ Gemini API fallback behavior
+- ✅ Scaler equivalence
 
-All three core AI model workflows were successfully validated during development.
+The three core model pipelines were successfully integrated and tested through their production API workflows.
 
-📊 Model Performance
-Model	Task	Architecture	Accuracy
-Fraud Detection	Classification	XGBoost	99.98%
-House Price	Regression	Stacking Regressor	94.5%
-Tomato Disease	Image Classification	DenseNet121 / TFLite	99.5%
+---
 
-Note: Reported performance values correspond to the evaluation performed during the project development/training process.
+# ☁️ Deployment
 
-☁️ Deployment
+The backend is deployed using **Railway**.
 
-The FastAPI backend is deployed on:
+### Production Architecture
 
-Railway
+```text
+GitHub Repository
+       │
+       ▼
+   Railway
+       │
+       ▼
+ FastAPI Backend
+       │
+       ├── Fraud Model
+       ├── House Price Model
+       ├── Tomato TFLite Model
+       └── Gemini API
+```
 
-The deployment provides a production-ready API that can be consumed by the AURA AI frontend.
+The application is configured to run the FastAPI server on the deployment-provided port and exposes the REST endpoints required by the frontend.
 
-The architecture also separates sensitive configuration such as:
+---
 
-GEMINI_API_KEY
+# 🔐 Environment Variables
 
-from the source code by using environment variables.
+Sensitive credentials are kept outside the source code.
 
-🔐 Security
+Example:
 
-Sensitive credentials are not hardcoded into the application source code.
+```env
+GEMINI_API_KEY=your_gemini_api_key
+```
 
-Environment variables are used for protected configuration:
+The API key should **never** be committed to GitHub.
 
-GEMINI_API_KEY=your_api_key
+---
 
-The API key should never be committed to GitHub.
+# 🚀 Local Setup
 
-🎯 Project Goals
+## 1. Clone the repository
 
-AURA AI was built to demonstrate how different Artificial Intelligence techniques can work together inside one practical system.
+```bash
+git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
+cd YOUR_REPOSITORY
+```
 
-The main goals were:
+## 2. Create a virtual environment
 
-Build multiple real-world AI solutions.
-Integrate Machine Learning and Deep Learning models.
-Expose AI models through production APIs.
-Integrate Generative AI with traditional ML workflows.
-Build independent model-specific workflows.
-Deploy the backend to the cloud.
-Create a user-friendly interface for interacting with AI systems.
-🎓 Huawei AI Training Project
+### Windows
 
-This project was developed as part of the Huawei AI Training Program, combining the concepts and practical skills gained throughout the training into a single multi-model AI application.
+```bash
+python -m venv .venv
+.venv\Scripts\activate
+```
 
-👥 Team
+### Linux / macOS
 
-This project was developed collaboratively by:
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
 
-Team Members
+## 3. Install dependencies
 
-@YOUR_FRIEND_1
-@YOUR_FRIEND_2
-@YOUR_FRIEND_3
-@YOUR_FRIEND_4
-@YOUR_FRIEND_5
+```bash
+pip install -r requirements.txt
+```
 
-Instructor
+## 4. Configure environment variables
 
-@YOUR_INSTRUCTOR
-🔗 Links
-💻 Source Code
+Create a `.env` file:
 
-GitHub Repository:
-[Add your GitHub repository link here]
+```env
+GEMINI_API_KEY=your_gemini_api_key
+```
 
-🌐 Frontend Demo
+## 5. Start FastAPI
 
-Live Frontend:
-[Add your frontend-only demo link here]
+```bash
+uvicorn api.index:app --reload
+```
 
-⚠️ The live demo above represents the frontend interface only. The production AI backend is deployed separately.
+The API will be available at:
 
-🚀 Future Improvements
+```text
+http://127.0.0.1:8000
+```
 
-Potential future improvements include:
+Interactive API documentation:
 
-Real-time model monitoring
-More disease classes
-Additional financial fraud patterns
-Explainable AI visualizations
-Advanced model analytics
-User authentication
-Prediction history
-Database integration
-Mobile application
-More conversational Gemini capabilities
-📜 License
+```text
+http://127.0.0.1:8000/docs
+```
 
-This project was developed for educational and training purposes as part of the Huawei AI Training Program.
+---
 
-⭐ AURA AI
+# 🖥️ API Documentation
 
-Predict. Detect. Explain.
+FastAPI automatically provides interactive API documentation through Swagger UI.
 
-A unified AI platform bringing together Machine Learning, Deep Learning, Computer Vision, and Generative AI in one application.
+Once the backend is running:
+
+```text
+/docs
+```
+
+You can test:
+
+- Fraud endpoints
+- House Price endpoints
+- CNN image prediction
+- Gemini explanation endpoints
+- Health checks
+
+directly from the browser.
+
+---
+
+# 🔐 Design Principles
+
+### 1. Model Authority
+
+The trained ML/DL models remain responsible for predictions.
+
+### 2. Independent Workflows
+
+Each model has its own input format, preprocessing and inference pipeline.
+
+### 3. Separation of Concerns
+
+The frontend, API layer, ML models and Gemini layer have clearly separated responsibilities.
+
+### 4. Production-Oriented Deployment
+
+Models are exposed through FastAPI and deployed through Railway.
+
+### 5. Lightweight Computer Vision Deployment
+
+The Tomato Disease model is deployed using TensorFlow Lite to reduce model footprint and improve deployment compatibility.
+
+---
+
+# 🎓 Huawei AI Training Project
+
+AURA AI was developed as a final practical project within the **Huawei AI Training Program**.
+
+The project combines concepts and practical skills from:
+
+- Machine Learning
+- Deep Learning
+- Computer Vision
+- Model Evaluation
+- API Development
+- Generative AI
+- Cloud Deployment
+- AI System Integration
+
+The goal was to demonstrate how multiple AI technologies can be integrated into one practical, production-oriented application.
+
+---
+
+# 👥 Team
+
+### Team Members
+
+- 👤 @YOUR_FRIEND_1
+- 👤 @YOUR_FRIEND_2
+- 👤 @YOUR_FRIEND_3
+- 👤 @YOUR_FRIEND_4
+- 👤 @YOUR_FRIEND_5
+
+### Instructor
+
+- 🎓 @YOUR_INSTRUCTOR
+
+---
+
+# 🔗 Project Links
+
+### 💻 GitHub Repository
+
+[View Source Code](https://github.com/YOUR_USERNAME/YOUR_REPOSITORY)
+
+### 🌐 Frontend Demo
+
+[Open Frontend Demo](YOUR_FRONTEND_LINK)
+
+> ℹ️ The live demo link represents the **frontend interface**. The AI backend is deployed separately through Railway.
+
+### ⚡ Backend API
+
+[Open API Documentation](YOUR_RAILWAY_URL/docs)
+
+---
+
+# 🔮 Future Improvements
+
+Potential future development includes:
+
+- 📈 Advanced model monitoring
+- 📊 Interactive analytics dashboards
+- 🧠 Explainable AI visualizations
+- 🍅 Additional plant disease classes
+- 💳 More fraud detection scenarios
+- 🏠 Additional property datasets
+- 👤 User authentication
+- 🗃️ Prediction history
+- 📱 Mobile application
+- 💬 Extended conversational memory
+- 🔔 Real-time AI notifications
+
+---
+
+# 📜 License
+
+This project was developed for educational and training purposes as part of the **Huawei AI Training Program**.
+
+---
+
+<div align="center">
+
+## 🚀 AURA AI
+
+### Predict. Detect. Explain.
+
+**Machine Learning · Deep Learning · Computer Vision · Generative AI**
+
+Made with ❤️ by the AURA AI Team
+
+</div>
