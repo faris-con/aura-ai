@@ -1,0 +1,105 @@
+/* ==========================================================================
+   NEXA — HCIA AI Intelligence Platform
+   Responsive Breakpoints & Mobile Optimization
+   ========================================================================== */
+
+/* Laptop & Medium Screens */
+@media (max-width: 1024px) {
+  :root {
+    --sidebar-width: 240px;
+  }
+
+  .robot-wrapper {
+    max-width: 480px;
+    height: 360px;
+  }
+
+  .interactive-demo-panel {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Tablet & Smaller Devices */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 1.25rem;
+  }
+
+  .nav-links {
+    display: none; /* Mobile Drawer or Tab bar */
+  }
+
+  .hero-section {
+    padding: 2rem 1rem 3.5rem 1rem;
+  }
+
+  .hero-greeting {
+    font-size: 2.2rem;
+  }
+
+  .hero-subheadline {
+    font-size: 1rem;
+  }
+
+  .robot-wrapper {
+    max-width: 100%;
+    height: 300px;
+  }
+
+  .pipeline-flow {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .pipeline-arrow {
+    transform: rotate(90deg);
+  }
+
+  /* Chat Responsive Layout */
+  .chat-layout {
+    flex-direction: column;
+  }
+
+  .chat-sidebar {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    bottom: 0;
+    width: 280px;
+    transform: translateX(-100%);
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.7);
+  }
+
+  .chat-sidebar.mobile-open {
+    transform: translateX(0);
+  }
+
+  .chat-messages-container {
+    padding: 1.25rem 1rem;
+  }
+
+  .chat-bubble {
+    max-width: 90%;
+  }
+}
+
+/* Mobile Small Devices */
+@media (max-width: 480px) {
+  .hero-greeting {
+    font-size: 1.85rem;
+  }
+
+  .quick-chips-row {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .chip-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .user-pill-name {
+    display: none;
+  }
+}

@@ -1,0 +1,525 @@
+/* ==========================================================================
+   NEXA — HCIA AI Intelligence Platform
+   Light & Dark Futuristic Theme Tokens
+   ========================================================================== */
+
+:root, [data-theme="light"] {
+  /* Light Theme Color Palette */
+  --bg-light: #F8FAFC;          /* Main Workspace Light Background */
+  --bg-light-alt: #FAFAFF;      /* Alternate Clean Light Surface */
+  --sidebar-bg: #FFFFFF;        /* Sidebar Pure White Surface */
+  --surface-card: #FFFFFF;       /* Card & Input White Surface */
+  
+  /* Borders & Shadows */
+  --border-light: rgba(0, 0, 0, 0.08);
+  --border-subtle: rgba(139, 92, 246, 0.18);
+  --border-active: rgba(139, 92, 246, 0.45);
+  
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 12px 32px rgba(139, 92, 246, 0.08);
+  --shadow-lg: 0 20px 45px -10px rgba(139, 92, 246, 0.14);
+
+  /* Neon Accent Light Colors */
+  --primary-purple: #8B5CF6;
+  --primary-violet: #A855F7;
+  --secondary-cyan: #06B6D4;
+  --accent-cyan-light: #22D3EE;
+  --accent-blue: #3B82F6;
+  --accent-pink: #EC4899;
+
+  /* Typography Colors */
+  --text-main: #0F172A;
+  --text-muted: #64748B;
+  --text-subtle: #94A3B8;
+
+  /* Surface & Gradient Variations */
+  --root-gradient: radial-gradient(circle at 50% 0%, #FAFAFF 0%, #F8FAFC 100%);
+  --composer-glass-bg: #FFFFFF;
+  --modal-card-bg: #FFFFFF;
+  --chat-header-bg: rgba(255, 255, 255, 0.85);
+  --msg-nexa-bg: #FFFFFF;
+  --model-result-bg: #FAFAFF;
+  --user-avatar-bg: #E2E8F0;
+  --grid-line-cyan: rgba(6, 182, 212, 0.06);
+  --grid-line-purple: rgba(139, 92, 246, 0.06);
+
+  /* Layout dimensions */
+  --sidebar-width: 260px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  /* Fonts */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Space Grotesk', var(--font-sans);
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Transitions */
+  --transition-fast: 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ==========================================================================
+   NEXA — Dark Theme Overrides ([data-theme="dark"])
+   ========================================================================== */
+
+[data-theme="dark"] {
+  /* Dark Theme Color Palette */
+  --bg-light: #090D16;          /* Main Dark Canvas */
+  --bg-light-alt: #0D1322;      /* Dark Surface */
+  --sidebar-bg: #0F172A;        /* Dark Slate Sidebar */
+  --surface-card: #1E293B;       /* Card & Component Background */
+  
+  /* Borders & Shadows */
+  --border-light: rgba(255, 255, 255, 0.09);
+  --border-subtle: rgba(139, 92, 246, 0.35);
+  --border-active: rgba(139, 92, 246, 0.65);
+  
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 20px 45px -10px rgba(0, 0, 0, 0.6);
+
+  /* Neon Accent Bright Colors for Dark Surface */
+  --primary-purple: #A78BFA;
+  --primary-violet: #C084FC;
+  --secondary-cyan: #22D3EE;
+  --accent-cyan-light: #67E8F9;
+  --accent-blue: #60A5FA;
+  --accent-pink: #F472B6;
+
+  /* Typography Colors */
+  --text-main: #F8FAFC;
+  --text-muted: #94A3B8;
+  --text-subtle: #64748B;
+
+  /* Surface & Gradient Variations */
+  --root-gradient: radial-gradient(circle at 50% 0%, #0D1322 0%, #090D16 100%);
+  --composer-glass-bg: #1E293B;
+  --modal-card-bg: #1E293B;
+  --chat-header-bg: rgba(15, 23, 42, 0.85);
+  --msg-nexa-bg: #1E293B;
+  --model-result-bg: #0F172A;
+  --user-avatar-bg: #334155;
+  --grid-line-cyan: rgba(34, 211, 238, 0.12);
+  --grid-line-purple: rgba(167, 139, 250, 0.12);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--bg-light);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+#app-root {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: var(--root-gradient);
+  transition: background var(--transition-normal);
+}
+
+/* Ambient Neon Glowing Layer */
+.ambient-glow-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* 1. Cyber Grid Pattern */
+.glow-grid-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(var(--grid-line-purple) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line-cyan) 1px, transparent 1px);
+  background-size: 38px 38px;
+  mask-image: radial-gradient(circle at 50% 35%, rgba(0,0,0,1) 40%, rgba(0,0,0,0.05) 85%);
+  transition: background-image var(--transition-normal);
+}
+
+/* 2. Electric Cyan Core (Directly Behind Robot) */
+.glow-cyan-core {
+  position: absolute;
+  top: 32%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 760px;
+  height: 520px;
+  background: radial-gradient(ellipse at center, rgba(6, 182, 212, 0.45) 0%, rgba(59, 130, 246, 0.3) 45%, transparent 75%);
+  filter: blur(55px);
+  animation: auraPulse 5s ease-in-out infinite alternate;
+}
+
+[data-theme="dark"] .glow-cyan-core {
+  background: radial-gradient(ellipse at center, rgba(34, 211, 238, 0.55) 0%, rgba(96, 165, 250, 0.35) 45%, transparent 75%);
+  filter: blur(65px);
+}
+
+/* 3. Bright Violet Orb */
+.glow-violet-accent {
+  position: absolute;
+  top: 24%;
+  left: 42%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.45) 0%, rgba(139, 92, 246, 0.25) 50%, transparent 75%);
+  filter: blur(50px);
+  animation: auraPulse 7s ease-in-out infinite alternate-reverse;
+}
+
+[data-theme="dark"] .glow-violet-accent {
+  background: radial-gradient(circle, rgba(192, 132, 252, 0.5) 0%, rgba(167, 139, 250, 0.3) 50%, transparent 75%);
+  filter: blur(60px);
+}
+
+/* 4. Magenta & Pink Glow */
+.glow-pink-accent {
+  position: absolute;
+  top: 35%;
+  left: 58%;
+  transform: translate(-50%, -50%);
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.42) 0%, rgba(244, 63, 94, 0.22) 55%, transparent 75%);
+  filter: blur(55px);
+  animation: auraPulse 6s ease-in-out infinite alternate;
+}
+
+[data-theme="dark"] .glow-pink-accent {
+  background: radial-gradient(circle, rgba(244, 114, 182, 0.45) 0%, rgba(251, 113, 133, 0.25) 55%, transparent 75%);
+  filter: blur(65px);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.12);
+  border-radius: var(--radius-full);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.4);
+}
+
+/* ==========================================================================
+   NEXA — Authentication Modal & Components
+   ========================================================================== */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: var(--transition-normal);
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-card {
+  background: var(--modal-card-bg);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: 440px;
+  padding: 2.25rem;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  transform: translateY(20px);
+  transition: var(--transition-normal);
+}
+
+.modal-overlay.active .modal-card {
+  transform: translateY(0);
+}
+
+.btn-close-modal {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.3rem;
+  border-radius: var(--radius-sm);
+  transition: var(--transition-fast);
+}
+
+.btn-close-modal:hover {
+  color: var(--text-main);
+  background: rgba(139, 92, 246, 0.1);
+}
+
+.form-group {
+  margin-bottom: 1.15rem;
+  text-align: left;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 0.35rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: var(--bg-light-alt);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  color: var(--text-main);
+  outline: none;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  transition: var(--transition-fast);
+}
+
+.form-input:focus {
+  border-color: var(--primary-purple);
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.25);
+  background: var(--surface-card);
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 0.85rem;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--primary-purple), var(--accent-blue));
+  border: none;
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(139, 92, 246, 0.4);
+}
+
+/* ==========================================================================
+   Google OAuth Account Choice Dialog (Matching User Image Aesthetics)
+   ========================================================================== */
+
+.google-auth-card {
+  background: #141414;
+  border: 1px solid #282828;
+  border-radius: 24px;
+  width: 100%;
+  max-width: 640px;
+  padding: 2.25rem 2.5rem;
+  color: #E3E3E3;
+  direction: rtl;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+  position: relative;
+}
+
+.google-auth-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  color: #C4C7C5;
+  margin-bottom: 2rem;
+}
+
+.google-logo-svg {
+  width: 20px;
+  height: 20px;
+}
+
+.google-auth-header-grid {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 2.5rem;
+}
+
+.google-auth-title {
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: #E3E3E3;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.2;
+}
+
+.google-auth-subtitle {
+  font-size: 1.05rem;
+  color: #C4C7C5;
+  margin: 0;
+}
+
+.google-account-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid #282828;
+  border-bottom: 1px solid #282828;
+  margin-bottom: 2.5rem;
+}
+
+.google-account-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.15rem 0.5rem;
+  background: transparent;
+  border: none;
+  width: 100%;
+  color: inherit;
+  cursor: pointer;
+  border-bottom: 1px solid #202020;
+  transition: background 0.2s ease;
+  text-align: right;
+  direction: rtl;
+}
+
+.google-account-item:last-child {
+  border-bottom: none;
+}
+
+.google-account-item:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 12px;
+}
+
+.google-acc-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.google-acc-name {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #E3E3E3;
+}
+
+.google-acc-email {
+  font-size: 0.92rem;
+  color: #8E918F;
+  margin-top: 0.25rem;
+}
+
+.google-acc-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.google-acc-icon-placeholder {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid #444746;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #C4C7C5;
+}
+
+.google-notice-text {
+  font-size: 0.85rem;
+  color: #8E918F;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.google-notice-text a {
+  color: #A8C7FA;
+  text-decoration: none;
+}
+
+.google-auth-footer-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  font-size: 0.82rem;
+  color: #8E918F;
+  direction: rtl;
+}
+
+.google-footer-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.google-footer-links a {
+  color: #8E918F;
+  text-decoration: none;
+}
+
+.google-footer-links a:hover {
+  color: #E3E3E3;
+}
+
+.btn-google-trigger {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  background: #1F1F1F;
+  border: 1px solid #333333;
+  border-radius: var(--radius-md);
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  transition: var(--transition-fast);
+  margin-bottom: 1rem;
+}
+
+.btn-google-trigger:hover {
+  background: #2A2A2A;
+  border-color: #444444;
+}
+
